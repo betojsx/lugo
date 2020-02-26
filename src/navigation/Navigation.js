@@ -5,7 +5,7 @@ import Login from '../screens/Login';
 import Home from '../screens/Home';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 
 import {colors} from '../shared/styles';
 
@@ -34,6 +34,7 @@ const NavigationOptions = {
     },
     headerTitleAlign: 'center',
     headerTintColor: 'white',
+    ...TransitionPresets.SlideFromRightIOS,
   },
   login: {
     title: 'Login to Lugo',
