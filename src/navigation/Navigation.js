@@ -12,40 +12,70 @@ import {colors} from '../shared/styles';
 const Stack = createStackNavigator();
 
 const NavigationOptions = {
-  title: 'Login to Lugo',
-  headerStyle: {
-    shadowOpacity: 0,
-    shadowOpacity: 0,
-    shadowOffset: {
-      height: 0,
+  global: {
+    headerStyle: {
+      shadowOpacity: 0,
+      shadowOpacity: 0,
+      shadowOffset: {
+        height: 0,
+      },
+      shadowRadius: 0,
+      elevation: 0,
+      backgroundColor: colors.primary,
+      height: 60,
     },
-    shadowRadius: 0,
-    elevation: 0,
+    headerTitleStyle: {
+      fontFamily: 'Roboto-Bold',
+      letterSpacing: 2,
+      fontSize: 13,
+      lineHeight: 15,
+      color: 'white',
+      textTransform: 'uppercase',
+    },
+    headerTitleAlign: 'center',
+    headerTintColor: 'white',
   },
-  headerTitleStyle: {
-    fontFamily: 'Roboto-Bold',
-    letterSpacing: 2,
-    fontSize: 13,
-    lineHeight: 15,
-    color: colors.dark,
-    textTransform: 'uppercase',
+  login: {
+    title: 'Login to Lugo',
+    headerStyle: {
+      shadowOpacity: 0,
+      shadowOpacity: 0,
+      shadowOffset: {
+        height: 0,
+      },
+      shadowRadius: 0,
+      elevation: 0,
+      height: 60,
+    },
+    headerTitleStyle: {
+      fontFamily: 'Roboto-Bold',
+      letterSpacing: 2,
+      fontSize: 13,
+      lineHeight: 15,
+      color: colors.dark,
+      textTransform: 'uppercase',
+    },
   },
-  headerLayoutPreset: 'center',
+  home: {
+    title: 'Lugo',
+  },
 };
 const Navigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
         initialRouteName="Login"
-        screenOptions={{
-          headerTitleAlign: 'center',
-        }}>
+        screenOptions={NavigationOptions.global}>
         <Stack.Screen
           name="Login"
           component={Login}
-          options={NavigationOptions}
+          options={NavigationOptions.login}
         />
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={NavigationOptions.home}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

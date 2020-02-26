@@ -6,6 +6,7 @@ import {
   Button,
   TouchableOpacity,
   Image,
+  StatusBar,
 } from 'react-native';
 import {gstyles} from '../shared/styles';
 import FloatingLabel from '../components/FloatingLabel';
@@ -13,6 +14,7 @@ import FloatingLabel from '../components/FloatingLabel';
 const Login = ({navigation}) => {
   return (
     <View style={styles.mainContainer}>
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
       <Image
         style={styles.logo}
         source={require('../assets/images/logo.png')}
