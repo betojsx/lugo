@@ -1,9 +1,16 @@
 import React from 'react';
-import {StyleSheet, Text, View, PermissionsAndroid} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  PermissionsAndroid,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
 import MapView, {Marker} from 'react-native-maps';
-
+import Icon from 'react-native-vector-icons/dist/Ionicons';
 import {colors} from '../shared/styles';
-
+import {gstyles} from '../shared/styles';
 import {MAP_STYLE, INITIAL_REGION, markers} from '../mocks/map';
 
 const Map = () => {
@@ -29,6 +36,27 @@ const Map = () => {
             title={marker.name}></Marker>
         ))}
       </MapView>
+      <TouchableOpacity style={[gstyles.btn, styles.fixedBtn]}>
+        <View
+          style={{
+            flexDirection: 'row',
+            flex: 1,
+            justifyContent: 'center',
+            height: 40,
+            lineHeight: 1,
+            alignItems: 'center',
+            marginTop: 15,
+          }}>
+          <Icon
+            name="ios-qr-scanner"
+            size={18}
+            color="white"
+            style={{marginRight: 8}}
+          />
+          <Text style={[gstyles.btnText]}>Scan my Code</Text>
+        </View>
+        <Text style={[gstyles.btnText]}></Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -49,5 +77,12 @@ const styles = StyleSheet.create({
   markerLabelText: {
     color: 'white',
     fontSize: 14,
+  },
+  fixedBtn: {
+    position: 'absolute',
+    bottom: 35,
+    left: Dimensions.get('window').width / 2 - 145 / 2,
+    display: 'flex',
+    alignItems: 'center',
   },
 });
