@@ -13,7 +13,7 @@ import {colors} from '../shared/styles';
 import {gstyles} from '../shared/styles';
 import {MAP_STYLE, INITIAL_REGION, markers} from '../mocks/map';
 
-const Map = () => {
+const Map = ({navigation}) => {
   return (
     <View style={{flex: 1}}>
       <MapView
@@ -36,14 +36,14 @@ const Map = () => {
             title={marker.name}></Marker>
         ))}
       </MapView>
-      <TouchableOpacity style={[gstyles.btn, styles.fixedBtn]}>
+      <TouchableOpacity
+        style={[gstyles.btn, styles.fixedBtn]}
+        onPress={() => navigation.navigate('Scanner')}>
         <View
           style={{
             flexDirection: 'row',
             flex: 1,
             justifyContent: 'center',
-            height: 40,
-            lineHeight: 1,
             alignItems: 'center',
             marginTop: 15,
           }}>
