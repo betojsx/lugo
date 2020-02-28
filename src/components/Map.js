@@ -25,7 +25,8 @@ const Map = () => {
           <Marker
             coordinate={marker.coordinates}
             key={`marker-${index}`}
-            image={require('../assets/images/marker.png')}></Marker>
+            image={require('../assets/images/marker.png')}
+            title={marker.name}></Marker>
         ))}
       </MapView>
     </View>
