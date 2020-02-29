@@ -5,7 +5,11 @@ import Login from '../screens/Login';
 import Home from '../screens/Home';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
+import {
+  createStackNavigator,
+  TransitionPresets,
+  TransitionSpecs,
+} from '@react-navigation/stack';
 
 import {colors} from '../shared/styles';
 import Scanner from '../screens/Scanner';
@@ -65,6 +69,7 @@ const NavigationOptions = {
   },
   profile: {
     title: 'Profile',
+    ...TransitionPresets.RevealFromBottomAndroid,
   },
 };
 
