@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 16,
     textAlign: 'center',
+    marginBottom: 10,
   },
   infoBlockValue: {
     color: colors.dark,
