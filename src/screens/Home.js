@@ -5,31 +5,29 @@ import Map from '../components/Map';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 
 const Home = props => {
-  React.useLayoutEffect(() => {
-    props.navigation.setOptions({
-      headerLeft: () => (
-        <TouchableWithoutFeedback
-          onPress={() => props.navigation.navigate('Profile')}>
-          <Icon
-            name="user"
-            size={18}
-            color="white"
-            style={gstyles.headerBtnLeft}
-          />
-        </TouchableWithoutFeedback>
-      ),
-      headerRight: () => (
-        <TouchableWithoutFeedback>
-          <Icon
-            name="question-circle"
-            size={18}
-            color="white"
-            style={gstyles.headerBtnRight}
-          />
-        </TouchableWithoutFeedback>
-      ),
-    });
-  }, [props.navigation]);
+  props.navigation.setOptions({
+    headerLeft: () => (
+      <TouchableWithoutFeedback
+        onPress={() => props.navigation.navigate('Profile')}>
+        <Icon
+          name="user"
+          size={18}
+          color="white"
+          style={gstyles.headerBtnLeft}
+        />
+      </TouchableWithoutFeedback>
+    ),
+    headerRight: () => (
+      <TouchableWithoutFeedback>
+        <Icon
+          name="question-circle"
+          size={18}
+          color="white"
+          style={gstyles.headerBtnRight}
+        />
+      </TouchableWithoutFeedback>
+    ),
+  });
 
   return (
     <View style={{flex: 1}}>
