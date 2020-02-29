@@ -27,4 +27,15 @@ export const gstyles = StyleSheet.create({
     textAlign: 'center',
     lineHeight: 42,
   },
+  headerBtn: {
+    color: 'white',
+  },
+  headerBtnLeft: {
+    color: 'white',
+    paddingLeft: 20,
+  },
+  headerBtnRight: {
+    color: 'white',
+    paddingRight: 20,
+  },
 });

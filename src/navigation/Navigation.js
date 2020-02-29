@@ -9,8 +9,7 @@ import {createStackNavigator, TransitionPresets} from '@react-navigation/stack';
 
 import {colors} from '../shared/styles';
 import Scanner from '../screens/Scanner';
-
-const Stack = createStackNavigator();
+import Profile from '../screens/Profile';
 
 const NavigationOptions = {
   global: {
@@ -64,7 +63,13 @@ const NavigationOptions = {
   scanner: {
     title: 'Scan QR Code',
   },
+  profile: {
+    title: 'Profile',
+  },
 };
+
+const Stack = createStackNavigator();
+
 const Navigation = () => {
   return (
     <NavigationContainer>
@@ -85,6 +90,11 @@ const Navigation = () => {
           name="Scanner"
           component={Scanner}
           options={NavigationOptions.scanner}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
+          options={NavigationOptions.profile}
         />
       </Stack.Navigator>
     </NavigationContainer>
