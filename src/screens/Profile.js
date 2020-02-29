@@ -45,13 +45,29 @@ const Profile = ({navigation}) => {
         </View>
       </View>
       <View style={styles.userInfo}>
-        <FloatingLabel label="your name" fullWidth />
-        <FloatingLabel label="email" fullWidth />
-        <FloatingLabel label="phone" extraLabel="Edit" fullWidth />
-        <FloatingLabel label="payment method" extraLabel="Edit" fullWidth />
-        <FloatingLabel label="social security" extraLabel="Edit" fullWidth />
+        <FloatingLabel label="your name" text="Jacqueline Nelson" fullWidth />
+        <FloatingLabel label="email" text="contact@elitepixels.net" fullWidth />
+        <FloatingLabel
+          label="phone"
+          text="+156 252 512 21"
+          extraLabel="Edit"
+          fullWidth
+        />
+        <FloatingLabel
+          label="payment method"
+          text="Credit Card - x8241"
+          extraLabel="Edit"
+          fullWidth
+        />
+        <FloatingLabel
+          label="social security"
+          text="x9214"
+          extraLabel="Edit"
+          fullWidth
+        />
         <FloatingLabel
           label="password"
+          text="12345678"
           extraLabel="Edit"
           secureTextEntry={true}
           fullWidth

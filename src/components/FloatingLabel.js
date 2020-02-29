@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -12,12 +12,23 @@ import {colors} from '../shared/styles';
 const width = Dimensions.get('screen').width; //full width
 const height = Dimensions.get('window').height; //full height
 
-const FloatingLabel = ({label, extraLabel, ...props}) => {
+const FloatingLabel = ({label, extraLabel, text, ...props}) => {
   const containerWidth = props.fullWidth ? width - 40 : width - 80;
+  const [value, setValue] = useState(text);
+
+  const handleOnChange = value => {
+    setValue(value);
+  };
+
   return (
     <View style={[styles.container, {width: containerWidth}]}>
       <Text style={styles.label}>{label}</Text>
-      <TextInput style={[styles.input, {width: containerWidth}]} {...props} />
+      <TextInput
+        style={[styles.input, {width: containerWidth}]}
+        {...props}
+        value={value}
+        onChangeText={handleOnChange}
+      />
       {extraLabel && (
         <View style={styles.extraLabel}>
           <TouchableWithoutFeedback>
@@ -39,6 +50,7 @@ const styles = StyleSheet.create({
     lineHeight: 13,
     letterSpacing: 1,
     color: colors.dark,
+    opacity: 0.6,
     position: 'absolute',
     left: 10,
     top: -6,
@@ -52,7 +64,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     borderColor: '#E7E7E7',
-    paddingHorizontal: 14,
+    paddingHorizontal: 20,
+    fontFamily: 'Roboto-Medium',
+    fontSize: 13,
+    lineHeight: 15,
+    color: colors.dark,
   },
   extraLabel: {
     position: 'absolute',
