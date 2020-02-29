@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'Roboto-Bold',
     lineHeight: 24,
+    marginTop: 10,
     color: colors.dark,
     width: Dimensions.get('screen').width,
     textAlign: 'center',
