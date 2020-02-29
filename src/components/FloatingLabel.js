@@ -9,14 +9,15 @@ import {
 } from 'react-native';
 import {colors} from '../shared/styles';
 
-const width = Dimensions.get('window').width; //full width
+const width = Dimensions.get('screen').width; //full width
 const height = Dimensions.get('window').height; //full height
 
 const FloatingLabel = ({label, extraLabel, ...props}) => {
+  const containerWidth = props.fullWidth ? width - 40 : width - 80;
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {width: containerWidth}]}>
       <Text style={styles.label}>{label}</Text>
-      <TextInput style={styles.input} {...props} />
+      <TextInput style={[styles.input, {width: containerWidth}]} {...props} />
       {extraLabel && (
         <View style={styles.extraLabel}>
           <TouchableWithoutFeedback>
@@ -31,7 +32,7 @@ const FloatingLabel = ({label, extraLabel, ...props}) => {
 const styles = StyleSheet.create({
   container: {
     marginBottom: 30,
-    width: width - 80,
+    position: 'relative',
   },
   label: {
     fontSize: 11,
@@ -48,7 +49,6 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 54,
-    width: width - 80,
     borderWidth: 1,
     borderRadius: 10,
     borderColor: '#E7E7E7',

@@ -4,6 +4,7 @@ import {StyleSheet} from 'react-native';
 export const colors = {
   primary: '#6C40BE',
   dark: '#27282B',
+  grey: '#D4D4D5',
 };
 
 export const gstyles = StyleSheet.create({
