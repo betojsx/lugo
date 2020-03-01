@@ -110,16 +110,18 @@ const styles = StyleSheet.create({
   },
   extraLabel: {
     position: 'absolute',
-    right: 10,
-    top: 20,
-    maxWidth: 50,
-    width: 50,
+    right: 0,
+    top: 0,
+
+    // maxWidth: 50,
+    // width: 50,
   },
   extraLabelText: {
     fontSize: 13,
     fontFamily: 'Roboto-Medium',
     lineHeight: 15,
     color: colors.primary,
+    padding: 20,
   },
 });
 
