@@ -30,14 +30,6 @@ export const gstyles = StyleSheet.create({
   },
   headerBtn: {
     color: 'white',
-  },
-  headerBtnLeft: {
-    color: 'white',
     padding: 20,
-  },
-  headerBtnRight: {
-    color: 'white',
-    paddingRight: 20,
-    paddingLeft: 20,
   },
 });
