@@ -1,10 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, StatusBar, TouchableWithoutFeedback} from 'react-native';
 import {colors, gstyles} from '../shared/styles';
 import Map from '../components/Map';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import MyModal from '../components/MyModal';
 
 const Home = props => {
+  const [modalVisible, setModalVisible] = useState(false);
+
   props.navigation.setOptions({
     headerLeft: () => (
       <TouchableWithoutFeedback
@@ -18,7 +21,11 @@ const Home = props => {
       </TouchableWithoutFeedback>
     ),
     headerRight: () => (
-      <TouchableWithoutFeedback>
+      <TouchableWithoutFeedback
+        onPress={() => {
+          console.log('being pressed');
+          setModalVisible(!modalVisible);
+        }}>
         <Icon
           name="question-circle"
           size={18}
@@ -33,6 +40,7 @@ const Home = props => {
     <View style={{flex: 1}}>
       <StatusBar backgroundColor={colors.primary} barStyle="light-content" />
       <Map {...props} />
+      <MyModal {...{modalVisible, setModalVisible}} />
     </View>
   );
 };

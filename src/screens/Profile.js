@@ -19,7 +19,7 @@ const Profile = ({navigation}) => {
           name="ellipsis-v"
           size={18}
           color="white"
-          style={gstyles.headerBtnRight}
+          style={gstyles.headerBtn}
         />
       </TouchableWithoutFeedback>
     ),
