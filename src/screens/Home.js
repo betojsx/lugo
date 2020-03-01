@@ -12,12 +12,7 @@ const Home = props => {
     headerLeft: () => (
       <TouchableWithoutFeedback
         onPress={() => props.navigation.navigate('Profile')}>
-        <Icon
-          name="user"
-          size={18}
-          color="white"
-          style={gstyles.headerBtnLeft}
-        />
+        <Icon name="user" size={18} color="white" style={gstyles.headerBtn} />
       </TouchableWithoutFeedback>
     ),
     headerRight: () => (
@@ -30,7 +25,7 @@ const Home = props => {
           name="question-circle"
           size={18}
           color="white"
-          style={gstyles.headerBtnRight}
+          style={gstyles.headerBtn}
         />
       </TouchableWithoutFeedback>
     ),
