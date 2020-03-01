@@ -44,6 +44,9 @@ const FloatingLabel = ({
           {...props}
           value={value}
           onChangeText={handleOnChange}
+          onBlur={() => {
+            setReadOnly(false);
+          }}
           ref={ref => {
             inputRef = ref;
           }}
