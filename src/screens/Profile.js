@@ -51,24 +51,28 @@ const Profile = ({navigation}) => {
           label="phone"
           text="+156 252 512 21"
           extraLabel="Edit"
+          readOnlyFeature={true}
           fullWidth
         />
         <FloatingLabel
           label="payment method"
           text="Credit Card - x8241"
           extraLabel="Edit"
+          readOnlyFeature={true}
           fullWidth
         />
         <FloatingLabel
           label="social security"
           text="x9214"
           extraLabel="Edit"
+          readOnlyFeature={true}
           fullWidth
         />
         <FloatingLabel
           label="password"
           text="12345678"
           extraLabel="Edit"
+          readOnlyFeature={true}
           secureTextEntry={true}
           fullWidth
         />

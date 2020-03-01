@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -6,34 +6,72 @@ import {
   StyleSheet,
   Dimensions,
   TouchableWithoutFeedback,
+  TouchableNativeFeedback,
 } from 'react-native';
 import {colors} from '../shared/styles';
 
 const width = Dimensions.get('screen').width; //full width
 const height = Dimensions.get('window').height; //full height
 
-const FloatingLabel = ({label, extraLabel, text, ...props}) => {
+const FloatingLabel = ({
+  label,
+  extraLabel,
+  readOnlyFeature,
+  text,
+  ...props
+}) => {
+  let inputRef;
   const containerWidth = props.fullWidth ? width - 40 : width - 80;
   const [value, setValue] = useState(text);
+  const [readOnly, setReadOnly] = useState(false);
 
   const handleOnChange = value => {
     setValue(value);
   };
 
+  useEffect(() => {
+    if (readOnly) {
+      inputRef.focus();
+    }
+  }, [readOnly]);
+
   return (
     <View style={[styles.container, {width: containerWidth}]}>
       <Text style={styles.label}>{label}</Text>
-      <TextInput
-        style={[styles.input, {width: containerWidth}]}
-        {...props}
-        value={value}
-        onChangeText={handleOnChange}
-      />
+      {readOnlyFeature ? (
+        <TextInput
+          style={[styles.input, {width: containerWidth}]}
+          {...props}
+          value={value}
+          onChangeText={handleOnChange}
+          ref={ref => {
+            inputRef = ref;
+          }}
+          editable={readOnly}
+        />
+      ) : (
+        <TextInput
+          style={[styles.input, {width: containerWidth}]}
+          {...props}
+          value={value}
+          onChangeText={handleOnChange}
+        />
+      )}
       {extraLabel && (
         <View style={styles.extraLabel}>
           <TouchableWithoutFeedback>
             <Text style={styles.extraLabelText}>{extraLabel}</Text>
           </TouchableWithoutFeedback>
+        </View>
+      )}
+      {extraLabel && readOnlyFeature && (
+        <View style={styles.extraLabel}>
+          <TouchableNativeFeedback
+            onPress={() => {
+              setReadOnly(!readOnly);
+            }}>
+            <Text style={styles.extraLabelText}>{extraLabel}</Text>
+          </TouchableNativeFeedback>
         </View>
       )}
     </View>
