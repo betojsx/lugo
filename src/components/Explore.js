@@ -14,8 +14,10 @@ import {
   Fade,
 } from 'rn-placeholder';
 
+const MAX_HEIGHT = Dimensions.get('screen').height * 0.7;
+console.log(MAX_HEIGHT);
+const LIMIT = MAX_HEIGHT - 73;
 const Explore = ({scrollListen}) => {
-  const MAX_HEIGHT = 400;
   const drawPlaceholders = amount => {
     var placeholder_arr = [];
     for (var i = 0; i < amount; i++) {
@@ -37,7 +39,8 @@ const Explore = ({scrollListen}) => {
   const [innerScroll, setInnerScroll] = useState(false);
 
   scrollListen.addListener(({value}) => {
-    if (value >= 278) {
+    console.log(value, LIMIT);
+    if (value >= LIMIT) {
       setInnerScroll(true);
     } else {
       setInnerScroll(false);
@@ -46,7 +49,7 @@ const Explore = ({scrollListen}) => {
 
   return (
     <ScrollView
-      style={{backgroundColor: '#EDEDED', maxHeight: MAX_HEIGHT, zIndex: 3}}
+      style={styles.explorer}
       showsVerticalScrollIndicator={true}
       nestedScrollEnabled={innerScroll}>
       {drawPlaceholders(30)}
@@ -56,4 +59,21 @@ const Explore = ({scrollListen}) => {
 
 export default Explore;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  explorer: {
+    backgroundColor: 'white',
+    maxHeight: MAX_HEIGHT,
+    zIndex: 5,
+    padding: 20,
+    marginTop: -20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    shadowOffset: {
+      height: -10,
+    },
+    shadowRadius: 100,
+    elevation: 10,
+    shadowColor: 'black',
+    shadowOpacity: 0.8,
+  },
+});

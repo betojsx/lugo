@@ -47,7 +47,6 @@ const Home = props => {
     <View style={{...StyleSheet.absoluteFill}}>
       <Animated.ScrollView
         scrollEventThrottle={5}
-        showsVerticalScrollIndicator={true}
         style={{zIndex: 0}}
         onScroll={Animated.event(
           [{nativeEvent: {contentOffset: {y: scroll}}}],
@@ -59,7 +58,7 @@ const Home = props => {
         )}>
         <Animated.View
           style={{
-            height: screenHeight * 0.7,
+            height: screenHeight * 0.8,
             width: '100%',
             transform: [{translateY: Animated.multiply(scroll, 0.8)}],
           }}>
