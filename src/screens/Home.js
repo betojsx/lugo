@@ -58,7 +58,7 @@ const Home = props => {
         )}>
         <Animated.View
           style={{
-            height: screenHeight * 0.8,
+            height: screenHeight * 0.81,
             width: '100%',
             transform: [{translateY: Animated.multiply(scroll, 0.8)}],
           }}>
