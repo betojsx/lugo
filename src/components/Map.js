@@ -33,7 +33,8 @@ const Map = ({navigation}) => {
             coordinate={marker.coordinates}
             key={`marker-${index}`}
             image={require('../assets/images/marker.png')}
-            title={marker.name}></Marker>
+            title={marker.name}
+          />
         ))}
       </MapView>
       <TouchableOpacity
@@ -55,7 +56,7 @@ const Map = ({navigation}) => {
           />
           <Text style={[gstyles.btnText]}>Scan my Code</Text>
         </View>
-        <Text style={[gstyles.btnText]}></Text>
+        <Text style={[gstyles.btnText]} />
       </TouchableOpacity>
     </View>
   );
